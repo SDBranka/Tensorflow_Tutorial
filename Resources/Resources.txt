@@ -1,0 +1,20 @@
+https://www.youtube.com/watch?v=tPYj3fFJGjk
+
+
+Some Popular Python Packages You Get Pre-compiled – with ActivePython for Data Science/Big Data/Machine Learning
+pandas (data analysis)
+NumPy (multi-dimensional arrays)
+SciPy (algorithms to use with numpy)
+HDF5 (store & manipulate data)
+Matplotlib (data visualization)
+Jupyter (research collaboration)
+PyTables (managing HDF5 datasets)
+HDFS (C/C++ wrapper for Hadoop)
+pymongo (MongoDB driver)
+SQLAlchemy (Python SQL Toolkit)
+redis (Redis access libraries)
+pyMySQL (MySQL connector)
+scikit-learn (machine learning)
+TensorFlow (deep learning with neural networks)
+scikit-learn (machine learning algorithms)
+keras (high-level neural networks API)
