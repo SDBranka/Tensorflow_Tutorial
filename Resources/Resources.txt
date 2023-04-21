@@ -3,6 +3,9 @@ https://www.youtube.com/watch?v=tPYj3fFJGjk
 Seaborn Documentation
 https://seaborn.pydata.org/
 
+Plotly Charts
+https://plotly.com/python/treemaps/
+
 Look into ActivePython
 
 Some Popular Python Packages 
