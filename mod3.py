@@ -92,15 +92,15 @@ shape_df = df_train.shape
 
 
 df_train.age.hist(bins = 20)
-plt.show()
+# plt.show()
 
 
 df_train.sex.value_counts().plot(kind="barh")
-plt.show()
+# plt.show()
 
 
 df_train["class"].value_counts().plot(kind = "barh")
-plt.show()
+# plt.show()
 
 
 

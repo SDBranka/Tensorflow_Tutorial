@@ -3,10 +3,13 @@ https://www.youtube.com/watch?v=tPYj3fFJGjk
 Seaborn Documentation
 https://seaborn.pydata.org/
 
-Plotly Charts
+Plotly express
+https://plotly.com/python/plotly-express/
+
+Plotly Charts Treemaps
 https://plotly.com/python/treemaps/
 
-Look into ActivePython
+- Look into ActivePython
 
 Some Popular Python Packages 
 pandas (data analysis)

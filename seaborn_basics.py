@@ -380,6 +380,12 @@ from pywaffle import Waffle
 # fig.show()
 
 
+
+# It appears that ex10, ex11, ex12 can no longer be executed without
+# using a version of Pandas earlier than 2.x
+# # Get pandas Version
+# print(pd.__version__)
+
 # ex10
 # Plotting around a circle with a Radar chart
 # import plotly.express as px
@@ -393,17 +399,110 @@ from pywaffle import Waffle
 # fig.show()
 
 
-# ex11
-# Plot a radar chart with the sorted DataFrame.
-import plotly.express as px
+# # ex11
+# # Plot a radar chart with the sorted DataFrame.
+# import plotly.express as px
 
-fig = px.line_polar(df_s, r='emission_2018',
-                    theta='countries', line_close=True)
-fig.update_traces(fill='toself', line = dict(color=pal_spec[-5]))
-fig.show()
+# fig = px.line_polar(df_s, r='emission_2018',
+#                     theta='countries', line_close=True)
+# fig.update_traces(fill='toself', line = dict(color=pal_spec[-5]))
+# fig.show()
 
 
+# # ex12
+# # Using many circles with a Bubble chart
+# # the code below shows how to plot the bubbles vertically
+# # If you want to plot the bubbles in a horizontal direction, 
+# # alternate the values between the X and Y columns
+# #X-axis and Y-axis column
+# df_s['X'] = [1]*len(df_s)
+# list_y = list(range(0,len(df_s)))
+# list_y.reverse()
+# df_s['Y'] = list_y
 
+# #labels column
+# df_s['labels'] = ['<b>'+i+'<br>'+format(j, ",") for i,j in zip(df_s['countries'], df_s['emission_2018'])]
+# df_s
+
+
+# import plotly.express as px
+
+# fig = px.scatter(df_s, x='X', y='Y',
+#                     color='countries', color_discrete_sequence=pal_vi,
+#                     size='emission_2018', text='labels', size_max=30
+#                 )
+
+# fig.update_layout(width=500, height=1100,
+#                     margin = dict(t=0, l=0, r=0, b=0),
+#                     showlegend=False
+#                 )
+
+# fig.update_traces(textposition='middle right')
+# fig.update_xaxes(showgrid=False, zeroline=False, visible=False)
+# fig.update_yaxes(showgrid=False, zeroline=False, visible=False)
+
+# fig.update_layout({"plot_bgcolor": 'white', 
+#                     "paper_bgcolor": 'white'})
+# fig.show()
+
+
+# # ex13
+# # Plot the bubbles in a circular direction
+# # create X and Y coordinates in a circle
+# import plotly.express as px
+# import math
+
+# e = 360/len(df)
+# degree = [i*e for i in list(range(len(df)))]
+# df_s['X_coor'] = [math.cos(i*math.pi/180) for i in degree]
+# df_s['Y_coor'] = [math.sin(i*math.pi/180) for i in degree]
+# df_s
+
+
+# fig = px.scatter(df_s, x='X_coor', y='Y_coor',
+#                     color="countries", color_discrete_sequence=pal_vi,
+#                     size='emission_2018', text='labels', size_max=40
+#                 )
+# fig.update_layout(width=800, height=800,
+#                     margin = dict(t=0, l=0, r=0, b=0),
+#                     showlegend=False
+#                 )
+# fig.update_traces(textposition='bottom center')
+# fig.update_xaxes(showgrid=False, zeroline=False, visible=False)
+# fig.update_yaxes(showgrid=False, zeroline=False, visible=False)
+
+# fig.update_layout({'plot_bgcolor': 'white',
+#                     'paper_bgcolor': 'white'})
+# fig.show()
+
+
+# ex14
+# Clustering the bubbles with Circle packing
+import circlify
+
+# compute circle positions:
+circles = circlify.circlify(df_s['emission_2018'].tolist(), 
+                            show_enclosure=False, 
+                            target_enclosure=circlify.Circle(x=0, y=0)
+                            )
+circles.reverse()
+
+# Plot the circle packing
+
+fig, ax = plt.subplots(figsize=(14, 14), facecolor='white')
+ax.axis('off')
+lim = max(max(abs(circle.x)+circle.r, abs(circle.y)+circle.r,) for circle in circles)
+plt.xlim(-lim, lim)
+plt.ylim(-lim, lim)
+
+# print circles
+for circle, label, emi, color in zip(circles, df_s['countries'], df_s['emission_2018'], pal_vi):
+    x, y, r = circle
+    ax.add_patch(plt.Circle((x, y), r, alpha=0.9, color = color))
+    plt.annotate(label +'\n'+ format(emi, ","), (x,y), size=15, va='center', ha='center')
+plt.xticks([])
+plt.yticks([])
+plt.show()
 
 
 
