@@ -1,7 +1,8 @@
 https://www.youtube.com/watch?v=tPYj3fFJGjk
 
+Look into ActivePython
 
-Some Popular Python Packages You Get Pre-compiled – with ActivePython for Data Science/Big Data/Machine Learning
+Some Popular Python Packages 
 pandas (data analysis)
 NumPy (multi-dimensional arrays)
 SciPy (algorithms to use with numpy)
