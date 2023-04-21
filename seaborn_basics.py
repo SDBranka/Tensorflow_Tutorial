@@ -103,12 +103,14 @@ df['percentage'] = [i*100/sum(df['emission_2018']) for i in df['emission_2018']]
 df_s = df.sort_values(by='emission_2018', ascending=False)
 # print(df_s.head(9))
 
+
+# ex1
 # plot a bar chart for comparing with results from other visualizations later
-plt.figure(figsize=(15,6.5))
-sns.set_style('darkgrid')
-g = sns.barplot(data=df, x='countries', y='emission_2018',
-                ci=False, palette='viridis_r')
-g.set_xticklabels(df['countries'], rotation=55, fontdict={'fontsize':10})
+# plt.figure(figsize=(15,6.5))
+# sns.set_style('darkgrid')
+# g = sns.barplot(data=df, x='countries', y='emission_2018',
+#                 ci=False, palette='viridis_r')
+# g.set_xticklabels(df['countries'], rotation=55, fontdict={'fontsize':10})
 # plt.show()
 
 
@@ -125,161 +127,284 @@ pal_spec = get_color('Spectral', len(df))
 pal_hsv = get_color('hsv', len(df))
 
 
+# # ex2
 # Plot a circular bar chart with the DataFrame
-import math
-plt.gcf().set_size_inches(12, 12)
-sns.set_style('darkgrid')
+# import math
 
-#set max value
-max_val = max(df['emission_2018'])*1.01
-ax = plt.subplot(projection='polar')
+# plt.gcf().set_size_inches(12, 12)
+# sns.set_style('darkgrid')
 
-#set the subplot 
-ax.set_theta_zero_location('N')
-ax.set_theta_direction(1)
-ax.set_rlabel_position(0)
-ax.set_thetagrids([], labels=[])
-ax.set_rgrids(range(len(df)), labels= df['countries'])
+# #set max value
+# max_val = max(df['emission_2018'])*1.01
+# ax = plt.subplot(projection='polar')
 
-#set the projection
-ax = plt.subplot(projection='polar')
+# #set the subplot 
+# ax.set_theta_zero_location('N')
+# ax.set_theta_direction(1)
+# ax.set_rlabel_position(0)
+# ax.set_thetagrids([], labels=[])
+# ax.set_rgrids(range(len(df)), labels= df['countries'])
 
-for i in range(len(df)):
-    ax.barh(i, list(df['emission_2018'])[i]*2*np.pi/max_val,
-            label=list(df['countries'])[i], color=pal_vi[i])
+# #set the projection
+# ax = plt.subplot(projection='polar')
 
-plt.legend(bbox_to_anchor=(1, 1), loc=2)
+# for i in range(len(df)):
+#     ax.barh(i, list(df['emission_2018'])[i]*2*np.pi/max_val,
+#             label=list(df['countries'])[i], color=pal_vi[i])
+
+# plt.legend(bbox_to_anchor=(1, 1), loc=2)
 # plt.show()
 
 
-# Plot a circular bar chart with the sorted DataFrame
-import math
-plt.gcf().set_size_inches(12, 12)
-sns.set_style('darkgrid')
+# # ex3
+# # Plot a circular bar chart with the sorted DataFrame
+# import math
 
-#set max value
-max_val = max(df_s['emission_2018'])*1.01
-ax = plt.subplot(projection='polar')
+# plt.gcf().set_size_inches(12, 12)
+# sns.set_style('darkgrid')
 
-for i in range(len(df)):
-    ax.barh(i, list(df_s['emission_2018'])[i]*2*np.pi/max_val,
-            label=list(df_s['countries'])[i], color=pal_plas[i])
+# #set max value
+# max_val = max(df_s['emission_2018'])*1.01
+# ax = plt.subplot(projection='polar')
 
-#set the subplot 
-ax.set_theta_zero_location('N')
-ax.set_theta_direction(1)
-ax.set_rlabel_position(0)
-ax.set_thetagrids([], labels=[])
-ax.set_rgrids(range(len(df)), labels= df_s['countries'])
+# for i in range(len(df)):
+#     ax.barh(i, list(df_s['emission_2018'])[i]*2*np.pi/max_val,
+#             label=list(df_s['countries'])[i], color=pal_plas[i])
 
-#set the projection
-ax = plt.subplot(projection='polar')
-plt.legend(bbox_to_anchor=(1, 1), loc=2)
+# #set the subplot 
+# ax.set_theta_zero_location('N')
+# ax.set_theta_direction(1)
+# ax.set_rlabel_position(0)
+# ax.set_thetagrids([], labels=[])
+# ax.set_rgrids(range(len(df)), labels= df_s['countries'])
+
+# #set the projection
+# ax = plt.subplot(projection='polar')
+# plt.legend(bbox_to_anchor=(1, 1), loc=2)
 # plt.show()
 
 
-# Starting from the center with a Radial bar chart
-plt.figure(figsize=(12,12))
-ax = plt.subplot(111, polar=True)
-plt.axis()
+# # ex4
+# # Starting from the center with a Radial bar chart
+# plt.figure(figsize=(12,12))
+# ax = plt.subplot(111, polar=True)
+# plt.axis()
 
-#set min and max value
-lowerLimit = 0
-max_v = df['emission_2018'].max()
+# #set min and max value
+# lowerLimit = 0
+# max_v = df['emission_2018'].max()
 
-#set heights and width
-heights = df['emission_2018']
-width = 2*np.pi / len(df.index)
+# #set heights and width
+# heights = df['emission_2018']
+# width = 2*np.pi / len(df.index)
 
-#set index and angle
-indexes = list(range(1, len(df.index)+1))
-angles = [element * width for element in indexes]
+# #set index and angle
+# indexes = list(range(1, len(df.index)+1))
+# angles = [element * width for element in indexes]
 
-bars = ax.bar(x=angles, height=heights, width=width, bottom=lowerLimit,
-                linewidth=1, edgecolor="white", color=pal_vi)
-labelPadding = 15
+# bars = ax.bar(x=angles, height=heights, width=width, bottom=lowerLimit,
+#                 linewidth=1, edgecolor="white", color=pal_vi)
+# labelPadding = 15
 
-for bar, angle, height, label in zip(bars,angles, heights, df['countries']):
-    rotation = np.rad2deg(angle)
-    alignment = ""
-    #deal with alignment
-    if angle >= np.pi/2 and angle < 3*np.pi/2:
-        alignment = "right"
-        rotation = rotation + 180
-    else: 
-        alignment = "left"
-    ax.text(x=angle, y=lowerLimit + bar.get_height() + labelPadding,
-            s=label, ha=alignment, va='center', rotation=rotation, 
-            rotation_mode="anchor")
-    ax.set_thetagrids([], labels=[])
+# for bar, angle, height, label in zip(bars,angles, heights, df['countries']):
+#     rotation = np.rad2deg(angle)
+#     alignment = ""
+#     #deal with alignment
+#     if angle >= np.pi/2 and angle < 3*np.pi/2:
+#         alignment = "right"
+#         rotation = rotation + 180
+#     else: 
+#         alignment = "left"
+#     ax.text(x=angle, y=lowerLimit + bar.get_height() + labelPadding,
+#             s=label, ha=alignment, va='center', rotation=rotation, 
+#             rotation_mode="anchor")
+#     ax.set_thetagrids([], labels=[])
 # plt.show()
 
 
-# Plot a radial bar chart with the sorted DataFrame
-plt.figure(figsize=(12,12))
-ax = plt.subplot(111, polar=True)
-plt.axis()
+# # ex5
+# # Plot a radial bar chart with the sorted DataFrame
+# plt.figure(figsize=(12,12))
+# ax = plt.subplot(111, polar=True)
+# plt.axis()
 
-#set min and max value
-lowerLimit = 0
-max_v = df_s['emission_2018'].max()
+# #set min and max value
+# lowerLimit = 0
+# max_v = df_s['emission_2018'].max()
 
-#set heights and width
-heights = df_s['emission_2018']
-width = 2*np.pi / len(df_s.index)
+# #set heights and width
+# heights = df_s['emission_2018']
+# width = 2*np.pi / len(df_s.index)
 
-#set index and angle
-indexes = list(range(1, len(df_s.index)+1))
-angles = [element * width for element in indexes]
+# #set index and angle
+# indexes = list(range(1, len(df_s.index)+1))
+# angles = [element * width for element in indexes]
 
-bars = ax.bar(x=angles, height=heights, width=width, bottom=lowerLimit,
-                linewidth=1, edgecolor="white", color=pal_plas)
-labelPadding = 15
+# bars = ax.bar(x=angles, height=heights, width=width, bottom=lowerLimit,
+#                 linewidth=1, edgecolor="white", color=pal_plas)
+# labelPadding = 15
 
-for bar, angle, height, label in zip(bars,angles, heights, df_s['countries']):
-    rotation = np.rad2deg(angle)
-    alignment = ""
-    #deal with alignment
-    if angle >= np.pi/2 and angle < 3*np.pi/2:
-        alignment = "right"
-        rotation = rotation + 180
-    else: 
-        alignment = "left"
-    ax.text(x=angle, y=lowerLimit + bar.get_height() + labelPadding,
-            s=label, ha=alignment, va='center', rotation=rotation, 
-            rotation_mode="anchor")
-    ax.set_thetagrids([], labels=[])
+# for bar, angle, height, label in zip(bars,angles, heights, df_s['countries']):
+#     rotation = np.rad2deg(angle)
+#     alignment = ""
+#     #deal with alignment
+#     if angle >= np.pi/2 and angle < 3*np.pi/2:
+#         alignment = "right"
+#         rotation = rotation + 180
+#     else: 
+#         alignment = "left"
+#     ax.text(x=angle, y=lowerLimit + bar.get_height() + labelPadding,
+#             s=label, ha=alignment, va='center', rotation=rotation, 
+#             rotation_mode="anchor")
+#     ax.set_thetagrids([], labels=[])
 # plt.show()
 
 
-# Create an interactive graph using area for comparing with Treemap
-import plotly.express as px
-fig = px.treemap(df, path=[px.Constant('Countries'), 'countries'],
-                    values=df['emission_2018'],
-                    color=df['emission_2018'],
-                    color_continuous_scale='Spectral_r',
-                    color_continuous_midpoint=np.average(df['emission_2018'])
-                )
-fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
+# # ex6
+# # Create an interactive graph using area for comparing with Treemap
+# import plotly.express as px
+
+# fig = px.treemap(df, path=[px.Constant('Countries'), 'countries'],
+#                     values=df['emission_2018'],
+#                     color=df['emission_2018'],
+#                     color_continuous_scale='Spectral_r',
+#                     color_continuous_midpoint=np.average(df['emission_2018'])
+#                 )
+# fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
 # fig.show()
 
 
-# Waffle chart
+# # ex7
+# # Waffle chart
 from pywaffle import Waffle
 
-fig = plt.figure(FigureClass=Waffle, 
-                    rows=20,
-                    columns=50,
-                    values=list(df_s['emission_2018']), 
-                    colors=pal_spec,
-                    labels=[i+' '+format(j, ',') for i,j in zip(df_s['countries'], df_s['emission_2018'])],
-                    figsize = (15,6),
-                    legend={'loc':'upper right',
-                            'bbox_to_anchor': (1.26, 1)
-                    }
-                )
-plt.tight_layout() 
-plt.show()
+# fig = plt.figure(FigureClass=Waffle, 
+#                     rows=20,
+#                     columns=50,
+#                     values=list(df_s['emission_2018']), 
+#                     colors=pal_spec,
+#                     labels=[i+' '+format(j, ',') for i,j in zip(df_s['countries'], df_s['emission_2018'])],
+#                     figsize = (15,6),
+#                     legend={'loc':'upper right',
+#                             'bbox_to_anchor': (1.26, 1)
+#                     }
+#                 )
+# plt.tight_layout() 
+# plt.show()
+
+
+# # ex7a
+# # Plot each country’s waffle chart
+# # To avoid the difficulty in reading, let’s plot 
+# # each country, one by one, against the other countries
+# # Note: each country will display on a separate graph 
+# # and each graph will be saved as a png to the parent folder
+# save_name = []
+# for i,p,n,c in zip(df_s['emission_2018'], df_s['percentage'], df_s['countries'], pal_hsv):
+#     fig = plt.figure(FigureClass=Waffle,
+#                         rows=10, columns=20,
+#                         values=[i, sum(df_s['emission_2018'])-i], 
+#                         colors=[c,'gainsboro'],
+#                         labels=[n + ' ' + str(round(p,1)) +' %','Other countries'],
+#                         figsize = (8,8),
+#                         legend={'loc':'upper right', 'bbox_to_anchor': (1, 1), 'fontsize':24}
+#                     )
+#     save_name.append('waffle_'+ n + '.png')
+#     plt.tight_layout()
+#     plt.savefig('waffle_'+ n + '.png', bbox_inches='tight')   #export_fig
+#     plt.show()
+#     plt.close()
+
+
+# # ex7b
+# # create a collage of each country's waffle chart
+# from PIL import Image
+
+# def get_collage(cols_n, rows_n, width, height, input_sname, save_name):
+#     c_width = width//cols_n
+#     c_height = height//rows_n
+#     size = c_width, c_height
+#     new_im = Image.new('RGB', (width, height))
+#     ims = []
+#     for p in input_sname:
+#         im = Image.open(p)
+#         im.thumbnail(size)
+#         ims.append(im)
+#     i, x, y = 0,0,0
+    
+#     for col in range(cols_n):
+#         for row in range(rows_n):
+#             print(i, x, y)
+#             try:
+#                 new_im.paste(ims[i], (x, y))
+#                 i += 1
+#                 y += c_height
+#             except IndexError:
+#                 pass
+#         x += c_width
+#         y = 0
+#     new_im.save(save_name)
+
+# # to create a fit photo collage: 
+# # width = number of columns * figure width
+# # height = number of rows * figure height
+# get_collage(5, 5, 2840, 1445, save_name, 'Collage_waffle.png')
+
+
+# # ex8
+# # Plot an interactive bar chart
+# import plotly.express as px
+
+# fig = px.bar(df, x='countries', y='emission_2018', text='emission_2018',
+#                 color ='countries', color_discrete_sequence=pal_vi)
+
+# fig.update_traces(texttemplate='%{text:.3s}', textposition='outside')
+# fig.update_layout({'plot_bgcolor': 'white',
+#                     'paper_bgcolor': 'white'})
+
+# fig.update_layout(width=1100, height=500,
+#                     margin = dict(t=15, l=15, r=15, b=15))
+# fig.show()
+
+
+# # ex9
+# # Showing percentages in an interactive pie chart
+# import plotly.express as px
+
+# fig = px.pie(df_s, values='emission_2018', names='countries',
+#                 color ='countries', color_discrete_sequence=pal_vi)
+# fig.update_traces(textposition='inside',
+#                     textinfo='percent+label',
+#                     sort=False)
+# fig.update_layout(width=1000, height=550)
+# fig.show()
+
+
+# ex10
+# Plotting around a circle with a Radar chart
+# import plotly.express as px
+
+# fig = px.line_polar(df, r='emission_2018', 
+#                     theta='countries', line_close=True
+#                     )
+# fig.update_traces(fill='toself', 
+#                     line = dict(color=pal_spec[5])
+#                 )
+# fig.show()
+
+
+# ex11
+# Plot a radar chart with the sorted DataFrame.
+import plotly.express as px
+
+fig = px.line_polar(df_s, r='emission_2018',
+                    theta='countries', line_close=True)
+fig.update_traces(fill='toself', line = dict(color=pal_spec[-5]))
+fig.show()
+
+
+
+
 
 
 
