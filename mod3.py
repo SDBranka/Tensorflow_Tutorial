@@ -127,18 +127,22 @@ shape_df = df_train.shape
 # # (627, 9)
 
 
+# display comparison of passengers by age
 df_train.age.hist(bins = 20)
 # plt.show()
 
 
+# display comparison of passengers by sex
 df_train.sex.value_counts().plot(kind="barh")
 # plt.show()
 
 
+# display comparison of passengers by class
 df_train["class"].value_counts().plot(kind = "barh")
 # plt.show()
 
 
+# Compare survival rates by sex
 pd.concat([df_train, y_train], axis=1).groupby('sex').survived.mean().plot(kind='barh').set_xlabel('% survive')
 # plt.show()
 
