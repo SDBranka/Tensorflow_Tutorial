@@ -100,9 +100,62 @@ df_train.sex.value_counts().plot(kind="barh")
 
 
 df_train["class"].value_counts().plot(kind = "barh")
-# plt.show()
+plt.show()
 
 
+pd.concat([df_train, y_train], axis=1).groupby('sex').survived.mean().plot(kind='barh').set_xlabel('% survive')
+plt.show()
+
+
+# Feature Columns
+CATEGORICAL_COLUMNS = ['sex', 'n_siblings_spouses', 
+                        'parch', 'class', 'deck',
+                        'embark_town', 'alone'
+                        ]
+NUMERIC_COLUMNS = ['age', 'fare']
+
+feature_columns = []
+for feature_name in CATEGORICAL_COLUMNS:
+    vocabulary = df_train[feature_name].unique()  # gets a list of all unique values from given feature column
+    feature_columns.append(tf.feature_column.categorical_column_with_vocabulary_list(feature_name, vocabulary))
+
+for feature_name in NUMERIC_COLUMNS:
+    feature_columns.append(tf.feature_column.numeric_column(feature_name, dtype=tf.float32))
+
+print(feature_columns)
+# WARNING:tensorflow:From C:\Users\xxxxxx\Desktop\Programming\Projects\Machine_Lear
+# ning\Tensorflow_Tutorial\mod3.py:120: categorical_column_with_vocabulary_list (f
+# rom tensorflow.python.feature_column.feature_column_v2) is deprecated and will b
+# e removed in a future version.
+# Instructions for updating:
+# Use Keras preprocessing layers instead, either directly or via the `tf.keras.uti
+# ls.FeatureSpace` utility. Each of `tf.feature_column.*` has a functional equival
+# ent in `tf.keras.layers` for feature preprocessing when training a Keras model.
+# WARNING:tensorflow:From C:\Users\xxxxxx\Desktop\Programming\Projects\Machine_Lear
+# ning\Tensorflow_Tutorial\mod3.py:123: numeric_column (from tensorflow.python.fea
+# ture_column.feature_column_v2) is deprecated and will be removed in a future ver
+# sion.
+# Instructions for updating:
+# Use Keras preprocessing layers instead, either directly or via the `tf.keras.uti
+# ls.FeatureSpace` utility. Each of `tf.feature_column.*` has a functional equival
+# ent in `tf.keras.layers` for feature preprocessing when training a Keras model.
+
+# [VocabularyListCategoricalColumn(key='sex', vocabulary_list=('male', 'female'),
+# dtype=tf.string, default_value=-1, num_oov_buckets=0), VocabularyListCategorical
+# Column(key='n_siblings_spouses', vocabulary_list=(1, 0, 3, 4, 2, 5, 8), dtype=tf
+# .int64, default_value=-1, num_oov_buckets=0), VocabularyListCategoricalColumn(ke
+# y='parch', vocabulary_list=(0, 1, 2, 5, 3, 4), dtype=tf.int64, default_value=-1,
+#  num_oov_buckets=0), VocabularyListCategoricalColumn(key='class', vocabulary_lis
+# t=('Third', 'First', 'Second'), dtype=tf.string, default_value=-1, num_oov_bucke
+# ts=0), VocabularyListCategoricalColumn(key='deck', vocabulary_list=('unknown', '
+# C', 'G', 'A', 'B', 'D', 'F', 'E'), dtype=tf.string, default_value=-1, num_oov_bu
+# ckets=0), VocabularyListCategoricalColumn(key='embark_town', vocabulary_list=('S
+# outhampton', 'Cherbourg', 'Queenstown', 'unknown'), dtype=tf.string, default_val
+# ue=-1, num_oov_buckets=0), VocabularyListCategoricalColumn(key='alone', vocabula
+# ry_list=('n', 'y'), dtype=tf.string, default_value=-1, num_oov_buckets=0), Numer
+# icColumn(key='age', shape=(1,), default_value=None, dtype=tf.float32, normalizer
+# _fn=None), NumericColumn(key='fare', shape=(1,), default_value=None, dtype=tf.fl
+# oat32, normalizer_fn=None)]
 
 
 
