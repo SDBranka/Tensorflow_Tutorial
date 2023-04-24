@@ -60,7 +60,11 @@ t = tf.reshape(t, [125,-1])
 # print(t)
 
 
+# Evaluating tensors
+# tf.compat.v1.Session() replaces tf.Session
 
+with tf.compat.v1.Session() as sess:         #creates a session using the default graph
+    tensor1.eval()                  #
 
 
 

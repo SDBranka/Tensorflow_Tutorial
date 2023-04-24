@@ -31,9 +31,20 @@ df_eval = pd.read_csv("Data/eval.csv")
 # # 624         1  female  19.0  ...        B  Southampton      y
 # # 625         0  female  28.0  ...  unknown  Southampton      n
 # # 626         0    male  32.0  ...  unknown   Queenstown      y
+# print(df_train.head())
+# #    survived     sex   age  n_siblings_spouses  parch     fare  class     deck  embark_town alone
+# # 0         0    male  22.0                   1      0   7.2500  Third  unknown  Southampton     n
+# # 1         1  female  38.0                   1      0  71.2833  First        C    Cherbourg     n
+# # 2         1  female  26.0                   0      0   7.9250  Third  unknown  Southampton     y
+# # 3         1  female  35.0                   1      0  53.1000  First        C  Southampton     n
+# # 4         0    male  28.0                   0      0   8.4583  Third  unknown   Queenstown     y
 
 
 # store "survived" column from each df as a variable
+# it is beneficial to store the data we intend to classify separately
+# from the data we intend to base our predictions upon(input data). As we 
+# intend to predict the survival rate we remove this column from the df 
+# and store it as a variable
 y_train = df_train.pop("survived")
 y_eval = df_eval.pop("survived")
 # print(y_train)
@@ -51,27 +62,52 @@ y_eval = df_eval.pop("survived")
 
 
 # inspect the first five items of the df
+# after removing the "survived" column 
 first_five_rows = df_train.head()
 # print(first_five_rows)
-# #       sex   age  n_siblings_spouses  parch  ...  class     deck  embark_town alo
-# # ne
-# # 0    male  22.0                   1      0  ...  Third  unknown  Southampton
-# #  n
-# # 1  female  38.0                   1      0  ...  First        C    Cherbourg
-# #  n
-# # 2  female  26.0                   0      0  ...  Third  unknown  Southampton
-# #  y
-# # 3  female  35.0                   1      0  ...  First        C  Southampton
-# #  n
-# # 4    male  28.0                   0      0  ...  Third  unknown   Queenstown
-# #  y
+# #       sex   age  n_siblings_spouses  parch  ...  class     deck  embark_town alone
+# # 0    male  22.0                   1      0  ...  Third  unknown  Southampton  n
+# # 1  female  38.0                   1      0  ...  First        C    Cherbourg  n
+# # 2  female  26.0                   0      0  ...  Third  unknown  Southampton  y
+# # 3  female  35.0                   1      0  ...  First        C  Southampton  n
+# # 4    male  28.0                   0      0  ...  Third  unknown   Queenstown  y
 
 # # [5 rows x 9 columns]
 
-y_train_first_five = y_train.head()
+# y_train_first_five = y_train.head()
+
+# # inspect values at specific locations (in this case row 0)
+# print(df_train.loc[0])
+# # sex                          male
+# # age                          22.0
+# # n_siblings_spouses              1
+# # parch                           0
+# # fare                         7.25
+# # class                       Third
+# # deck                      unknown
+# # embark_town           Southampton
+# # alone                           n
+# # Name: 0, dtype: object
+# print(y_train.loc[0])
+# # 0
+# # inspect a column of the df
+# print(df_train["age"])
+# # 0      22.0
+# # 1      38.0
+# # 2      26.0
+# # 3      35.0
+# # 4      28.0
+# #        ...
+# # 622    28.0
+# # 623    25.0
+# # 624    19.0
+# # 625    28.0
+# # 626    32.0
+# # Name: age, Length: 627, dtype: float64
 
 
-# more statistical analysis of data 
+# more statistical analysis of data. gives some overall 
+# information about the df 
 describe_data = df_train.describe()
 # print(describe_data)
 # #               age  n_siblings_spouses       parch        fare
@@ -100,11 +136,11 @@ df_train.sex.value_counts().plot(kind="barh")
 
 
 df_train["class"].value_counts().plot(kind = "barh")
-plt.show()
+# plt.show()
 
 
 pd.concat([df_train, y_train], axis=1).groupby('sex').survived.mean().plot(kind='barh').set_xlabel('% survive')
-plt.show()
+# plt.show()
 
 
 # Feature Columns
@@ -114,15 +150,15 @@ CATEGORICAL_COLUMNS = ['sex', 'n_siblings_spouses',
                         ]
 NUMERIC_COLUMNS = ['age', 'fare']
 
-feature_columns = []
-for feature_name in CATEGORICAL_COLUMNS:
-    vocabulary = df_train[feature_name].unique()  # gets a list of all unique values from given feature column
-    feature_columns.append(tf.feature_column.categorical_column_with_vocabulary_list(feature_name, vocabulary))
+# feature_columns = []
+# for feature_name in CATEGORICAL_COLUMNS:
+#     vocabulary = df_train[feature_name].unique()  # gets a list of all unique values from given feature column
+#     feature_columns.append(tf.feature_column.categorical_column_with_vocabulary_list(feature_name, vocabulary))
 
-for feature_name in NUMERIC_COLUMNS:
-    feature_columns.append(tf.feature_column.numeric_column(feature_name, dtype=tf.float32))
+# for feature_name in NUMERIC_COLUMNS:
+#     feature_columns.append(tf.feature_column.numeric_column(feature_name, dtype=tf.float32))
 
-print(feature_columns)
+# print(feature_columns)
 # WARNING:tensorflow:From C:\Users\xxxxxx\Desktop\Programming\Projects\Machine_Lear
 # ning\Tensorflow_Tutorial\mod3.py:120: categorical_column_with_vocabulary_list (f
 # rom tensorflow.python.feature_column.feature_column_v2) is deprecated and will b
