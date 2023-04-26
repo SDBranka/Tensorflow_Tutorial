@@ -1,0 +1,12 @@
+titanic_train
+https://storage.googleapis.com/tf-datasets/titanic/train.csv
+
+titanic_eval
+https://storage.googleapis.com/tf-datasets/titanic/eval.csv
+
+iris_train
+https://storage.googleapis.com/download.tensorflow.org/data/iris_training.csv
+
+iris_test
+https://storage.googleapis.com/download.tensorflow.org/data/iris_test.csv
+

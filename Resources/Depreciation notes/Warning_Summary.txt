@@ -36,6 +36,9 @@
 
 (from tensorflow.python.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
 
+(from tensorflow.python.saved_model.model_utils.export_output) is deprecated and will be removed in a future version.
+
+(from tensorflow.python.saved_model.model_utils.export_output) is deprecated and will be removed in a future version.
 
 
 

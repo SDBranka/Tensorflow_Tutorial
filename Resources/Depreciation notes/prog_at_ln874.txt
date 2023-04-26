@@ -99,3 +99,13 @@ ges\tensorflow\python\training\evaluation.py:260: FinalOpsHook.__init__ (from te
 _session_run_hooks) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packages\tensorflow_estimator\pyt
+hon\estimator\head\binary_class_head.py:561: RegressionOutput.__init__ (from tensorflow.python.saved_model.model_utils.export_output) is d
+eprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packages\tensorflow_estimator\pyt
+hon\estimator\head\binary_class_head.py:563: PredictOutput.__init__ (from tensorflow.python.saved_model.model_utils.export_output) is depr
+ecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
