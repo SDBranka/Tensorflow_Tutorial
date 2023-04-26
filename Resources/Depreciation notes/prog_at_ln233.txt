@@ -1,0 +1,101 @@
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\Tensorflow_Tutorial\mod3.
+py:160: categorical_column_with_vocabulary_list (from tensorflow.python.feature_column.feature_column_v2) is d
+eprecated and will be removed in a future version.
+Instructions for updating:
+Use Keras preprocessing layers instead, either directly or via the `tf.keras.utils.FeatureSpace` utility. Each
+ of `tf.feature_column.*` has a functional equivalent in `tf.keras.layers` for feature preprocessing when trai
+ning a Keras model.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\Tensorflow_Tutorial\mod3.
+py:163: numeric_column (from tensorflow.python.feature_column.feature_column_v2) is deprecated and will be rem
+oved in a future version.
+Instructions for updating:
+Use Keras preprocessing layers instead, either directly or via the `tf.keras.utils.FeatureSpace` utility. Each
+ of `tf.feature_column.*` has a functional equivalent in `tf.keras.layers` for feature preprocessing when trai
+ning a Keras model.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\Tensorflow_Tutorial\mod3.
+py:239: LinearClassifierV2.__init__ (from tensorflow_estimator.python.estimator.canned.linear) is deprecated a
+nd will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow_estimator\python\estimator\head\head_utils.py:54: BinaryClassHead.__init__ (from tensorflow_est
+imator.python.estimator.head.binary_class_head) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow_estimator\python\estimator\canned\linear.py:944: Estimator.__init__ (from tensorflow_estimator.
+python.estimator.estimator) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow_estimator\python\estimator\estimator.py:1842: RunConfig.__init__ (from tensorflow_estimator.pyt
+hon.estimator.run_config) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:Using temporary folder as model directory: C:\Users\sdbra\AppData\Local\Temp\tmpfk6fwois
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow\python\training\training_util.py:396: Variable.initialized_value (from tensorflow.python.ops.va
+riables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use Variable.read_value. Variables in 2.X are initialized automatically both in eager and graph (inside tf.def
+un) contexts.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\keras\optimizers\legacy\ftrl.py:173: calling Constant.__init__ (from tensorflow.python.ops.init_ops) with
+dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow_estimator\python\estimator\model_fn.py:250: EstimatorSpec.__new__ (from tensorflow_estimator.py
+thon.estimator.model_fn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow_estimator\python\estimator\estimator.py:1414: NanTensorHook.__init__ (from tensorflow.python.tr
+aining.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow_estimator\python\estimator\estimator.py:1417: LoggingTensorHook.__init__ (from tensorflow.pytho
+n.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow\python\training\basic_session_run_hooks.py:232: SecondOrStepTimer.__init__ (from tensorflow.pyt
+hon.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow_estimator\python\estimator\estimator.py:1454: CheckpointSaverHook.__init__ (from tensorflow.pyt
+hon.training.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow\python\training\monitored_session.py:579: StepCounterHook.__init__ (from tensorflow.python.trai
+ning.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow\python\training\monitored_session.py:586: SummarySaverHook.__init__ (from tensorflow.python.tra
+ining.basic_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow\python\training\monitored_session.py:1455: SessionRunArgs.__new__ (from tensorflow.python.train
+ing.session_run_hook) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow\python\training\monitored_session.py:1454: SessionRunContext.__init__ (from tensorflow.python.t
+raining.session_run_hook) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow\python\training\monitored_session.py:1474: SessionRunValues.__new__ (from tensorflow.python.tra
+ining.session_run_hook) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.
+WARNING:tensorflow:From C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\TFTutorial\lib\site-packa
+ges\tensorflow\python\training\evaluation.py:260: FinalOpsHook.__init__ (from tensorflow.python.training.basic
+_session_run_hooks) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.keras instead.

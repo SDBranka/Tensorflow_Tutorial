@@ -1,0 +1,16 @@
+# WARNING:tensorflow:From C:\Users\xxxxxx\Desktop\Programming\Projects\Machine_Lear
+# ning\Tensorflow_Tutorial\mod3.py:120: categorical_column_with_vocabulary_list (f
+# rom tensorflow.python.feature_column.feature_column_v2) is deprecated and will b
+# e removed in a future version.
+# Instructions for updating:
+# Use Keras preprocessing layers instead, either directly or via the `tf.keras.uti
+# ls.FeatureSpace` utility. Each of `tf.feature_column.*` has a functional equival
+# ent in `tf.keras.layers` for feature preprocessing when training a Keras model.
+# WARNING:tensorflow:From C:\Users\xxxxxx\Desktop\Programming\Projects\Machine_Lear
+# ning\Tensorflow_Tutorial\mod3.py:123: numeric_column (from tensorflow.python.fea
+# ture_column.feature_column_v2) is deprecated and will be removed in a future ver
+# sion.
+# Instructions for updating:
+# Use Keras preprocessing layers instead, either directly or via the `tf.keras.uti
+# ls.FeatureSpace` utility. Each of `tf.feature_column.*` has a functional equival
+# ent in `tf.keras.layers` for feature preprocessing when training a Keras model.
