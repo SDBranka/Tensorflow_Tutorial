@@ -1,3 +1,6 @@
+# Predict the survival rate of the passengers
+# based on their details
+
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 # import numpy as np                                   # optimize arrays
