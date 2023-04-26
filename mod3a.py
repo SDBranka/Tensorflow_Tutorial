@@ -102,30 +102,40 @@ eval_result = classifier.evaluate(input_fn=lambda: input_fn(test, test_y, traini
 # print('\nTest set accuracy: {accuracy:0.3f}\n'.format(**eval_result))
 # # Test set accuracy: 0.533
 
+
 # Use trained model to make predictions
 def input_fn(features, batch_size=256):
     # Convert the inputs to a Dataset without labels.
     return tf.data.Dataset.from_tensor_slices(dict(features)).batch(batch_size)
 
 features = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth']
+# create prediction dictionary
 predict = {}
 
+# allow user to enter values for each feature upon which the label will be predicted
 print("Please type numeric values as prompted.")
+# for each feature we will wait until there is a valid response
 for feature in features:
     valid = True
     while valid: 
         val = input(feature + ": ")
         if not val.isdigit(): valid = False
-
+    # once there is a valid response we will add that to the prediction dictionary
     predict[feature] = [float(val)]
 
 predictions = classifier.predict(input_fn=lambda: input_fn(predict))
 for pred_dict in predictions:
+    # print(pred_dict)
+    # # {'logits': array([-4.61818  , -1.3173925,  4.4842186], dtype=float32), 'probabilities': array([1.1105032e-04, 3.0132376e-03, 9.9687564e-01], dtype
+    # # =float32), 'class_ids': array([2], dtype=int64), 'classes': array([b'2'], dtype=object), 'all_class_ids': array([0, 1, 2]), 'all_classes': array([
+    # # b'0', b'1', b'2'], dtype=object)}
+
     class_id = pred_dict['class_ids'][0]
     probability = pred_dict['probabilities'][class_id]
 
     print('Prediction is "{}" ({:.1f}%)'.format(
         SPECIES[class_id], 100 * probability))
+# Prediction is "Virginica" (97.7%)
 
 
 
