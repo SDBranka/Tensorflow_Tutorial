@@ -1,4 +1,6 @@
 - Once a model is trained with acceptable results, how do we 
 save it so that it might be reused in the future?
 
+***What’s Generative AI? Concepts, Examples
+
 

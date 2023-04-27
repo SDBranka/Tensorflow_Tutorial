@@ -4,4 +4,13 @@ https://hmmlearn.readthedocs.io/en/latest/
 A Revealing Introduction to Hidden Markov Models
 https://www.cs.sjsu.edu/~stamp/RUA/HMM.pdf
 
+Hidden Markov Models: Concepts, Examples
+https://vitalflux.com/hidden-markov-models-concepts-explained-with-examples/
+
+Hidden Markov Model — Implemented from scratch
+https://towardsdatascience.com/hidden-markov-model-implemented-from-scratch-72865bda430e
+
+
+
+
 
