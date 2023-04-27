@@ -1,15 +1,20 @@
 # Predict the species of flower based on
 # it's features
 
+# Classification
+# Where regression was used to predict a numeric value, classification is used 
+# to seperate data points into classes of different labels
+
+
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-import numpy as np                                   # optimize arrays
+# import numpy as np                                   # optimize arrays
 import pandas as pd                                  # data analytics
-import matplotlib.pyplot as plt                      # data visualization
+# import matplotlib.pyplot as plt                      # data visualization
 import tensorflow as tf                              # needed to create a linear regression model algo
-import tensorflow.compat.v2.feature_column as fc     # 
-from IPython.display import clear_output             # to enable clearing the output
-from six.moves import urllib                         # 
+# import tensorflow.compat.v2.feature_column as fc     # 
+# from IPython.display import clear_output             # to enable clearing the output
+# from six.moves import urllib                         # 
 
 
 # Lets define some constants to help us later on
@@ -129,6 +134,9 @@ for pred_dict in predictions:
     # # {'logits': array([-4.61818  , -1.3173925,  4.4842186], dtype=float32), 'probabilities': array([1.1105032e-04, 3.0132376e-03, 9.9687564e-01], dtype
     # # =float32), 'class_ids': array([2], dtype=int64), 'classes': array([b'2'], dtype=object), 'all_class_ids': array([0, 1, 2]), 'all_classes': array([
     # # b'0', b'1', b'2'], dtype=object)}
+    # # ^^ the array supplied in probabilities contains the likelyhood 
+    # # the flower in question is each species. the class_ids shows what class id
+    # # the model predicts as the species of the flower.
 
     class_id = pred_dict['class_ids'][0]
     probability = pred_dict['probabilities'][class_id]
@@ -140,7 +148,14 @@ for pred_dict in predictions:
 
 
 
-
+# Here is some example input and expected classes you can try above
+expected = ['Setosa', 'Versicolor', 'Virginica']
+predict_x = {
+    'SepalLength': [5.1, 5.9, 6.9],
+    'SepalWidth': [3.3, 3.0, 3.1],
+    'PetalLength': [1.7, 4.2, 5.4],
+    'PetalWidth': [0.5, 1.5, 2.1],
+}
 
 
 

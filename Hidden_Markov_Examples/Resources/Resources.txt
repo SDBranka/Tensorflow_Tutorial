@@ -1,0 +1,7 @@
+hmmlearn documentation
+https://hmmlearn.readthedocs.io/en/latest/
+
+A Revealing Introduction to Hidden Markov Models
+https://www.cs.sjsu.edu/~stamp/RUA/HMM.pdf
+
+

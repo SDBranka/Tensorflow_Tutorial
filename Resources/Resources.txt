@@ -1,4 +1,9 @@
+Command to check TensorFlow version
+python -c "import tensorflow as tf;print(tf. __version__)"
+
+
 https://www.youtube.com/watch?v=tPYj3fFJGjk
+
 
 Seaborn Documentation
 https://seaborn.pydata.org/
@@ -8,6 +13,35 @@ https://plotly.com/python/plotly-express/
 
 Plotly Charts Treemaps
 https://plotly.com/python/treemaps/
+
+Chen, James. “Line Of Best Fit.” Investopedia, Investopedia, 29 Jan. 2020
+http://www.investopedia.com/terms/l/line-of-best-fit.asp
+
+“Tf.feature_column.categorical_column_with_vocabulary_list.” TensorFlow
+http://www.tensorflow.org/api_docs/python/tf/feature_column/categorical_column_with_vocabulary_list?version=stable
+
+“Build a Linear Model with Estimators: TensorFlow Core.” TensorFlow
+http://www.tensorflow.org/tutorials/estimator/linear
+
+Staff, EasyBib. “The Free Automatic Bibliography Composer.” EasyBib, Chegg, 1 Jan. 2020
+http://www.easybib.com/project/style/mla8?id=1582473656_5e52a1b8c84d52.80301186
+
+TensorFlow Premade Estimators
+https://www.tensorflow.org/tutorials/estimator/premade
+
+The 5 Clustering Algorithms Data Scientists Need to Know
+https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68
+
+Definition of Hidden Markov Model
+http://jedlik.phy.bme.hu/~gerjanos/HMM/node4.html
+
+tfp.distributions.HiddenMarkovModel
+https://www.tensorflow.org/probability/api_docs/python/tfp/distributions/HiddenMarkovModel
+
+
+
+
+
 
 - Look into ActivePython
 

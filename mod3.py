@@ -315,32 +315,3 @@ result_dict = list(linear_est.predict(eval_input_fn))
 
 
 
-
-# Classification
-# Where regression was used to predict a numeric value, classification is used 
-# to seperate data points into classes of different labels
-# https://www.tensorflow.org/tutorials/estimator/premade
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
