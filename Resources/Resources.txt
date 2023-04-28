@@ -38,6 +38,11 @@ http://jedlik.phy.bme.hu/~gerjanos/HMM/node4.html
 tfp.distributions.HiddenMarkovModel
 https://www.tensorflow.org/probability/api_docs/python/tfp/distributions/HiddenMarkovModel
 
+How to Resolve "cannot import name 'naming' from 'tensorflow.python.autograph.core'" Error in Tensorflow
+https://copyprogramming.com/howto/how-to-resolve-cannot-import-name-naming-from-tensorflow-python-autograph-core-error-in-tensorflow
+
+tfp-nightly 0.20.0.dev20230428 documentation
+https://pypi.org/project/tfp-nightly/
 
 
 

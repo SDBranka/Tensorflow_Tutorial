@@ -83,13 +83,11 @@ tfd = tfp.distributions
 
 # based on our initial observation that on a hot day there's a 20%
 # of the next day being cold and an 80% chance of the next day being hot
-# As we consider the first day as hot the initial distribution will
-# be based on a hot days probability
 initial_distribution = tfd.Categorical(probs=[0.8, 0.2])  
 # a cold day (state 0) has a 70% chance of converting to another cold day and a 30% chance of converting to a hot day
 # a hot day (state 1) has a 80% chance of converting to another hot day and a 20% chance of converting to a cold day
-transition_distribution = tfd.Categorical(probs=[[0.7, 0.3],
-                                                [0.2, 0.8]]
+transition_distribution = tfd.Categorical(probs=[[0.7, 0.3],    # probs for transition cold day
+                                                [0.2, 0.8]]     # probs for transition hot day
                                                 )
 # the loc argument represents the mean and the scale is 
 # the standard devitation
@@ -124,5 +122,28 @@ with tf.compat.v1.Session() as sess:
 
 
 
+# Traceback (most recent call last):
+#   File "C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\Tensorflow_Tutorial\mod3b.py", line 76, in <module>
+#     import tensorflow_probability as tfp  # We are using a different module from tensorflow this time
+#   File "C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\Tensorflow_Tutorial\tfEnv\lib\site-packages\tensorflow_probability\__init__.p
+# y", line 75, in <module>
+#     from tensorflow_probability.python import *  # pylint: disable=wildcard-import
+#   File "C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\Tensorflow_Tutorial\tfEnv\lib\site-packages\tensorflow_probability\python\__i
+# nit__.py", line 24, in <module>
+#     from tensorflow_probability.python import edward2
+#   File "C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\Tensorflow_Tutorial\tfEnv\lib\site-packages\tensorflow_probability\python\edw
+# ard2\__init__.py", line 32, in <module>
+#     from tensorflow_probability.python.experimental.edward2.generated_random_variables import *
+#   File "C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\Tensorflow_Tutorial\tfEnv\lib\site-packages\tensorflow_probability\python\exp
+# erimental\__init__.py", line 34, in <module>
+#     from tensorflow_probability.python.experimental import auto_batching
+#   File "C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\Tensorflow_Tutorial\tfEnv\lib\site-packages\tensorflow_probability\python\exp
+# erimental\auto_batching\__init__.py", line 24, in <module>
+#     from tensorflow_probability.python.experimental.auto_batching import frontend
+#   File "C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\Tensorflow_Tutorial\tfEnv\lib\site-packages\tensorflow_probability\python\exp
+# erimental\auto_batching\frontend.py", line 44, in <module>
+#     from tensorflow.python.autograph.core import naming
+# ImportError: cannot import name 'naming' from 'tensorflow.python.autograph.core' (C:\Users\sdbra\Desktop\Programming\Projects\Machine_Learning\Ten
+# sorflow_Tutorial\tfEnv\lib\site-packages\tensorflow\python\autograph\core\__init__.py)
 
 
