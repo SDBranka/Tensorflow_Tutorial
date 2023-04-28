@@ -44,7 +44,11 @@ https://copyprogramming.com/howto/how-to-resolve-cannot-import-name-naming-from-
 tfp-nightly 0.20.0.dev20230428 documentation
 https://pypi.org/project/tfp-nightly/
 
+Basic classification: Classify images of clothing
+https://www.tensorflow.org/tutorials/keras/classification
 
+keras documentation
+https://keras.io/
 
 
 
