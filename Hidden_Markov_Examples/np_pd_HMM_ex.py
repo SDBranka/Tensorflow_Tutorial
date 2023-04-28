@@ -1,3 +1,6 @@
+# https://towardsdatascience.com/hidden-markov-model-implemented-from-scratch-72865bda430e
+
+
 
 # a look at the notation
 # T - length of the observation sequence.
