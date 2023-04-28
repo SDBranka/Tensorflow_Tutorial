@@ -1,6 +1,11 @@
 - Once a model is trained with acceptable results, how do we 
 save it so that it might be reused in the future?
+   - https://medium.com/analytics-vidhya/want-to-save-and-reuse-a-model-later-d48398584695
+   - https://machinelearningmastery.com/save-load-machine-learning-models-python-scikit-learn/
+   
+
 
 ***What’s Generative AI? Concepts, Examples
+https://vitalflux.com/generative-modeling-in-machine-learning-examples/
 
 

@@ -50,6 +50,20 @@ https://www.tensorflow.org/tutorials/keras/classification
 keras documentation
 https://keras.io/
 
+Gradient Descent
+https://ml-cheatsheet.readthedocs.io/en/latest/gradient_descent.html
+
+Various Optimization Algorithms For Training Neural Network
+https://medium.com/@sdoshi579/optimizers-for-training-neural-network-59450d71caf6
+
+Keras API reference / Models API / The Sequential class
+https://keras.io/api/models/sequential/
+
+
+
+
+
+
 
 
 - Look into ActivePython
