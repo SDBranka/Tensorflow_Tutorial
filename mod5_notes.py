@@ -121,7 +121,7 @@
 # matrix of some size containing values indicating if the filter was 
 # present at that location or not.
 # Here's a great illustration from the book "Deep Learning with Python" 
-# by Francois Chollet (pg 124).  (see mod5_notes_pic6)
+# by Francois Chollet (pg 124). (see mod5_notes_pic6)
 
 # Sample Size
 # This isn't really the best term to describe this, but each convolutional 
@@ -174,17 +174,28 @@
 # response map that is 2x smaller.
 
 
+# CNN Architecture
+# A common architecture for a CNN is a stack of Conv2D and MaxPooling2D 
+# layers followed by a few denesly connected layers. To idea is that the 
+# stack of convolutional and maxPooling layers extract the features from 
+# the image. Then these features are flattened and fed to densly connected 
+# layers that determine the class of an image based on the presence of 
+# features.
 
 
+# Working with Small Datasets
+# In the situation where you don't have millions of images it is 
+# difficult to train a CNN from scratch that performs very well
 
 
+# Data Augmentation
+# To avoid overfitting and create a larger dataset from a smaller one we 
+# can use a technique called data augmentation. This is simply performing 
+# random transofrmations on our images so that our model can generalize 
+# better. These transformations can be things like compressions, rotations, 
+# stretches and even color changes.
 
-
-
-
-
-
-
+# Fortunately, keras can help us do this.
 
 
 
