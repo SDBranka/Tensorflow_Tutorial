@@ -48,6 +48,7 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
 # plt.show()
 
 
+# Preprossessing data
 # In neural networks all the values must be between 0 and 1
 # The last step before creating our model is to preprocess our data. 
 # This simply means applying some prior transformations to our data 
@@ -77,20 +78,29 @@ model = keras.Sequential([
     # will be fully connected and each neuron from the previous layer 
     # connects to each neuron of this layer. It has 128 neurons and uses 
     # the rectify linear unit activation function (mod4_notes_pic1).
+    # Dense refers to that every neuron in the previous layer is connected
+    # every neuron in this layer
+    # The number of selected neurons may be adjusted to better fit the 
+    # problem as needed
     keras.layers.Dense(128, activation='relu'),  
     # output layer (3)
-    # has 10 neurons that we will look at to determine our models output. 
-    # Each neuron represnts the probabillity of a given image being one of 
-    # the 10 different classes. The activation function softmax is used on 
-    # this layer to calculate a probabillity distribution for each class. 
-    # This means the value of any neuron in this layer will be between 0 
-    # and 1, where 1 represents a high probabillity of the image being that 
-    # class.
+    # The output layer will have as many neurons as we have classes.
+    # This on has 10 neurons that we will look at to determine our 
+    # models output. Each neuron represnts the probabillity of a given 
+    # image being one of the 10 different classes. The activation 
+    # function softmax is used on this layer to calculate a probabillity 
+    # distribution for each class. This means the value of any neuron in 
+    # this layer will be between 0 and 1, where 1 represents a high 
+    # probabillity of the image being that class.
+    # softmax will make sure that all of the values of our neurons add up
+    # to 1 and are between 0 and 1
     keras.layers.Dense(10, activation='softmax') 
 ])
 
 
 # Compile the Model
+# adam is the algorithm that performs gradient descent
+# metrics will be the output we wish to see from the neural network
 model.compile(optimizer='adam',
                 loss='sparse_categorical_crossentropy',
                 metrics=['accuracy']
@@ -98,7 +108,8 @@ model.compile(optimizer='adam',
 
 
 # Training the Model
-# pass the data, labels and epochs
+# fit means we are fitting the model to the data passed
+# pass the data, labels and epochs 
 model.fit(train_images, train_labels, epochs=10) 
 
 
@@ -109,6 +120,20 @@ test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=1)
 
 # print('Test accuracy:', test_acc)
 # # Test accuracy: 0.8845999836921692
+# # because the model performed with less accuracy when handling the test
+# # data more than likely it was overfit, perhaps 10 epochs was too much
+# # or another hyperparameter should be adjusted
+
+
+# # let's get some info on our test_images
+# print(test_images.shape)
+# # (10000, 28, 28)
+# # 10000 pics at 28x28 pixels
+# print(type(test_images))
+# # <class 'numpy.ndarray'>
+# # the predict method works with an array. If you wished to predict using 
+# # only one element of the array
+# predictions = model.predict(test_images[0])
 
 
 # Making Predictions
@@ -132,6 +157,17 @@ predictions = model.predict(test_images)
 # # cooresponding test label
 # print(test_labels[0])
 # # 9
+# # print the label for the predicted class
+# print(class_names[np.argmax(predictions[0])])
+# # Ankle boot
+# # view the image we are predicting
+# # chart3
+# plt.figure()
+# plt.imshow(train_images[0])
+# plt.colorbar()
+# plt.grid(False)
+# plt.show()
+
 
 
 
@@ -160,21 +196,21 @@ def show_image(img, label, guess):
     plt.show()
 
 
-def get_number():
-    while True:
-        num = input("Pick a number: ")
-        # entered '9' recieved chart2
-        if num.isdigit():
-            num = int(num)
-            if 0 <= num <= 1000:
-                return int(num)
-        else:
-            print("Try again...")
+# def get_number():
+#     while True:
+#         num = input("Pick a number: ")
+#         # entered '9' recieved chart2
+#         if num.isdigit():
+#             num = int(num)
+#             if 0 <= num <= 1000:
+#                 return int(num)
+#         else:
+#             print("Try again...")
 
-num = get_number()
-image = test_images[num]
-label = test_labels[num]
-predict(model, image, label)
+# num = get_number()
+# image = test_images[num]
+# label = test_labels[num]
+# predict(model, image, label)
 
 
 
