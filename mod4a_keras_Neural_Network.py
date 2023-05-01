@@ -30,6 +30,11 @@ fashion_mnist = keras.datasets.fashion_mnist
 # # white. This means we have a grayscale image as there are no color
 # # channels.
 
+# # show the training labels, the values will be between 0 and 9 because
+# # there are 10 training labels
+# print(train_labels[:10])
+# # [9 0 0 3 0 2 7 2 5 5]
+
 
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
@@ -43,6 +48,7 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
 # plt.show()
 
 
+# In neural networks all the values must be between 0 and 1
 # The last step before creating our model is to preprocess our data. 
 # This simply means applying some prior transformations to our data 
 # before feeding it the model. In this case we will simply scale all 
@@ -101,8 +107,8 @@ model.fit(train_images, train_labels, epochs=10)
 # "verbose: 0 or 1. Verbosity mode. 0 = silent, 1 = progress bar."
 test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=1) 
 
-print('Test accuracy:', test_acc)
-# Test accuracy: 0.8845999836921692
+# print('Test accuracy:', test_acc)
+# # Test accuracy: 0.8845999836921692
 
 
 # Making Predictions
