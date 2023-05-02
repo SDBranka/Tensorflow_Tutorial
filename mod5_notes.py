@@ -198,6 +198,41 @@
 # Fortunately, keras can help us do this.
 
 
+# Pretrained Models
+# You would have noticed that the model above takes a few minutes to 
+# train in the NoteBook and only gives an accuaracy of ~70%. This is okay 
+# but surely there is a way to improve on this.
+
+# In this section we will talk about using a pretrained CNN as apart of 
+# our own custom network to improve the accuracy of our model. We know 
+# that CNN's alone (with no dense layers) don't do anything other than 
+# map the presence of features from our input. This means we can use a 
+# pretrained CNN, one trained on millions of images, as the start of our 
+# model. This will allow us to have a very good convolutional base before 
+# adding our own dense layered classifier at the end. In fact, by using 
+# this techique we can train a very good classifier for a realtively small 
+# dataset (< 10,000 images). This is because the convnet already has a 
+# very good idea of what features to look for in an image and can find 
+# them very effectively. So, if we can determine the presence of features 
+# all the rest of the model needs to do is determine which combination of 
+# features makes a specific image.
+
+# Fine Tuning
+# When we employ the technique defined above, we will often want to 
+# tweak the final layers in our convolutional base to work better for our 
+# specific problem. This involves not touching or retraining the earlier 
+# layers in our convolutional base but only adjusting the final few. We 
+# do this because the first layers in our base are very good at extracting 
+# low level features lile lines and edges, things that are similar for
+# any kind of image. Where the later layers are better at picking up very 
+# specific features like shapes or even eyes. If we adjust the final 
+# layers than we can look for only features relevant to our very specific 
+# problem.
+
+# Using a Pretrained Model
+# In this section we will combine the tecniques we learned above and use 
+# a pretrained model and fine tuning to classify images of dogs and cats 
+# using a small dataset.
 
 
 

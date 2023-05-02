@@ -59,6 +59,8 @@ https://medium.com/@sdoshi579/optimizers-for-training-neural-network-59450d71caf
 Keras API reference / Models API / The Sequential class
 https://keras.io/api/models/sequential/
 
+Transfer learning and fine-tuning
+https://www.tensorflow.org/tutorials/images/transfer_learning
 
 
 
