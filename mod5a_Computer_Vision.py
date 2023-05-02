@@ -4,11 +4,10 @@
 # 6000 images of each class.
 
 
+import numpy as np
 import tensorflow as tf
 from tensorflow.keras import datasets, layers, models
 import matplotlib.pyplot as plt
-from keras.preprocessing import image                            # for data augmentation
-from keras.preprocessing.image import ImageDataGenerator         # for data augmentation
 
 
 #  LOAD AND SPLIT DATASET
@@ -141,7 +140,7 @@ model.add(layers.Dense(10))
 # output layer of 10 neurons (one for each class).
 
 
-# train and compile the model using the recommended hyper paramaters 
+# compile and train the model using the recommended hyper paramaters 
 # from tensorflow
 model.compile(optimizer='adam',
             loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
@@ -162,36 +161,40 @@ history = model.fit(train_images, train_labels, epochs=10,
 # # so about 70% accuracy
 
 
-# Data Augmentation
-# creates a data generator object that transforms images
-datagen = ImageDataGenerator(
-rotation_range=40,
-width_shift_range=0.2,
-height_shift_range=0.2,
-shear_range=0.2,
-zoom_range=0.2,
-horizontal_flip=True,
-fill_mode='nearest')
+# Making Predictions
+# To make predictions we simply need to pass an array of data in the form 
+# we've specified in the input layer to .predict() method.
+predictions = model.predict(test_images)
 
-# pick an image to transform
-test_img = train_images[20]
-# convert image to numpy array
-img = image.img_to_array(test_img)  
-# reshape image
-img = img.reshape((1,) + img.shape)  
 
-i = 0
+# # This method returns to us an array of predictions for each image we 
+# # passed it. Let's have a look at the predictions for image 1
+# print(predictions[0])
 
-# this loops runs forever until we break, saving images to current directory with specified prefix
-for batch in datagen.flow(img, save_prefix='test', save_format='jpeg'):  
-    plt.figure(i)
-    plot = plt.imshow(image.img_to_array(batch[0]))
-    i += 1
-    # show 4 images
-    if i > 4:  
-        break
+# # If we wan't to get the value with the highest score we can use a 
+# # useful function from numpy called argmax(). This simply returns the 
+# # index of the maximium value from a numpy array.
+# print(np.argmax(predictions[0]))
 
-plt.show()
+# # we can check if this is correct by looking at the value of the 
+# # cooresponding test label
+# print(test_labels[0])
+# # print the label for the predicted class
+# print(class_names[np.argmax(predictions[0])])
+# # cat
+# # view the image we are predicting
+# # chart2
+# plt.figure()
+# plt.imshow(train_images[0])
+# plt.colorbar()
+# plt.grid(False)
+# plt.show()
+
+
+
+
+
+
 
 
 
